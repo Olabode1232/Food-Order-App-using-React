@@ -1,0 +1,19 @@
+.cardHolder{
+    font-size: 20px;
+    font-weight: bolder;
+    background-color: darkred;
+}
+.number{
+    width: auto;
+    background-color: rgb(216, 183, 183);
+    border-radius: 30px;
+}
+
+.cart path{
+stroke:white;
+/* stroke: 100px; */
+/* stroke-width: 5px; */
+}
+/* path{
+stroke: #fff;
+} */

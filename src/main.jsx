@@ -4,6 +4,8 @@ import App from './App'
 // import './index.css' 
 import "bootstrap/dist/css/bootstrap.css"
 import "bootstrap/dist/js/bootstrap.bundle"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+ 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
