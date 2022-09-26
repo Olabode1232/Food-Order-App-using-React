@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import MealItemForm from "./MealItemForm";
 
 function MealItem(props) {
-  const price = `$${props.price.toFixed(2)}`;
+  let price = `$${props.price.toFixed(2)}`;
   return (
     <div className="container">
       <div className="py-2 d-flex justify-content-md-between">
