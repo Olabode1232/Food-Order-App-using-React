@@ -18,7 +18,7 @@ const portalPlacement = document.getElementById("overlays");
 const Modal = (props) => {
   return (
     <Fragment>
-      {ReactDom.createPortal(<Backdrop onHideCart={props.onHideCart}/>, portalPlacement)}
+      {ReactDom.createPortal(<Backdrop onHideCart ={props.onHideCart}/>, portalPlacement)}
       {ReactDom.createPortal(
         <ModalOverLay>{props.children}</ModalOverLay>,
         portalPlacement
