@@ -1,8 +1,19 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import MealItemForm from "./MealItemForm";
+import CartContext from "../../../src/store/cartContext";
 
-function MealItem(props) {
+const MealItem = (props) => {
+  const cartCtx = useContext(CartContext);
   let price = `$${props.price.toFixed(2)}`;
+
+  const addToCartHandler = (amount) => {
+    cartCtx.addItem({
+      id: props.id,
+      name: props.name,
+      amount: amount,
+      price: props.price
+    })
+  };
   return (
     <div className="container">
       <div className="py-2 d-flex justify-content-md-between">
@@ -12,13 +23,13 @@ function MealItem(props) {
           <div className="text-danger fw-bold">{price}</div>
         </div>
         <div>
-          <MealItemForm />
+          <MealItemForm onAddToCart={addToCartHandler} />
         </div>
       </div>
 
       <hr className="text-dark" />
     </div>
   );
-}
+};
 
 export default MealItem;

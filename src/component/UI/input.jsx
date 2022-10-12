@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
-function Input(props) {
+const Input = React.forwardRef((props, ref) => {
     return <div>
         <label htmlFor={props.input.id} className="px-2 fw-bolder">{props.label}</label>
-        <input {...props.input} className="text-center"/>
+        <input ref={ref} {...props.input} className="text-center"/>
     </div>
-}
+});
 
 export default Input
