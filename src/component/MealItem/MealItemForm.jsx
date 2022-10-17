@@ -22,7 +22,7 @@ function MealItemForm(props) {
   const amountInputRef = useRef();
   return (
     <form onSubmit={submitHandler}>
-      <div className="pt-3">
+      <div className="pt-3 ">
         <Input
           ref={amountInputRef}
           label="Amount"

@@ -1,16 +1,30 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import Modal from "../UI/modal";
+import CartContext from "../../store/cartContext";
+import CartItem from "./cartItem";
 import "./cart.css";
 import "../UI/modal.css";
 
 const Cart = (props) => {
+  const cartCtx = useContext(CartContext);
+
+  const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
+  const hasItems = cartCtx.items.length > 0;
+
+  const removeItemHandler = id => {}
+  const addItemHandler = item => {}
   const cartItems = (
     <ul className="list-unstyled text-danger ">
-      {[{ id: "c1", name: "Chicken tender", amount: 2, price: 12.99 }].map(
-        (item) => (
-          <li key="item.id">{item.name}</li>
-        )
-      )}
+      {cartCtx.items.map((item) => (
+        <CartItem
+          key={item.id}
+          name={item.name}
+          price={item.price}
+          amount={item.amount}
+          onRemove={removeItemHandler.bind(null, item.id)} 
+          onAdd={addItemHandler.bind(null, item)}
+        />
+      ))}
     </ul>
   );
   return (
@@ -31,9 +45,11 @@ const Cart = (props) => {
               >
                 Close
               </button>
-              <button className="btn-warning text-light rounded-4 bg-danger px-3 mx-1 border-0">
-                Order{" "}
-              </button>
+              {hasItems && (
+                <button className="btn-warning text-light rounded-4 bg-danger px-3 mx-1 border-0">
+                  Order{" "}
+                </button>
+              )}
             </div>
           </div>
         </div>
